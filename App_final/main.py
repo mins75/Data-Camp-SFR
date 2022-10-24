@@ -50,19 +50,19 @@ st.set_page_config(
 
 @st.cache(suppress_st_warning=True) #let our app to be performant
 def get_database(): 
-    #df1 = pd.read_feather('DataSFRpart1.fth')
-    #df2 = pd.read_feather('DataSFRpart2.fth')
-    df1 = pd.read_csv('data1.csv').reset_index(drop=True)
-    df2 = pd.read_csv('data2.csv').reset_index(drop=True)
-    df3 = pd.read_csv('data3.csv').reset_index(drop=True)
-    df4 = pd.read_csv('data4.csv').reset_index(drop=True)
-    df5 = pd.read_csv('data5.csv').reset_index(drop=True)
-    df = pd.concat([df1,df2,df3,df4,df5]).reset_index(drop=True)
+    df1 = pd.read_feather('DataSFRpart1.fth')
+    df2 = pd.read_feather('DataSFRpart2.fth')
+    #df1 = pd.read_csv('data1.csv').reset_index(drop=True)
+    #df2 = pd.read_csv('data2.csv').reset_index(drop=True)
+    #df3 = pd.read_csv('data3.csv').reset_index(drop=True)
+    #df4 = pd.read_csv('data4.csv').reset_index(drop=True)
+    #df5 = pd.read_csv('data5.csv').reset_index(drop=True)
+    #df = pd.concat([df1,df2,df3,df4,df5]).reset_index(drop=True)
     #df = df.drop(columns='Unnamed: 0')
-    #df = pd.concat([df1,df2]).reset_index(drop=True)
+    df = pd.concat([df1,df2]).reset_index(drop=True)
     #df = pd.read_csv('DataSFR.csv')
-    df.Tweet_date = pd.to_datetime(df.Tweet_date).dt.date
-    df.month_year = pd.to_datetime(df.month_year).dt.date
+    #df.Tweet_date = pd.to_datetime(df.Tweet_date).dt.date
+    #df.month_year = pd.to_datetime(df.month_year).dt.date
     return df
 
 with urlopen("https://france-geojson.gregoiredavid.fr/repo/departements.geojson") as response:
