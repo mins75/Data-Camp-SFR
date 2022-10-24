@@ -50,9 +50,14 @@ st.set_page_config(
 
 @st.cache(suppress_st_warning=True) #let our app to be performant
 def get_database(): 
-    df1 = pd.read_feather('DataSFRpart1.fth')
-    df2 = pd.read_feather('DataSFRpart2.fth')
-    df = pd.concat([df1,df2]).reset_index(drop=True)
+    #df1 = pd.read_feather('DataSFRpart1.fth')
+    #df2 = pd.read_feather('DataSFRpart2.fth')
+    df1 = pd.read_csv('data1.csv')
+    df2 = pd.read_csv('data2.csv')
+    df3 = pd.read_csv('data3.csv')
+    df4 = pd.read_csv('data4.csv')
+    df5 = pd.read_csv('data5.csv')
+    df = pd.concat([df1,df2,df3,df4,df5]).reset_index(drop=True)
     return df
 
 with urlopen("https://france-geojson.gregoiredavid.fr/repo/departements.geojson") as response:
